@@ -1,3 +1,4 @@
+var utils   = require('../utils');
 var request = require('supertest');
 var assert  = require('assert');
 var app     = require('../../server');
