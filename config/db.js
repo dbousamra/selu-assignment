@@ -1,6 +1,6 @@
 module.exports = {
  db: {
-   production: "mongodb://user:pass@example.com:1234/selu-assignment-prod",
+   production: process.env.MONGOLAB_URI || process.env.MONGOHQ_URL || 'mongodb://localhost/mydb',
    development: "mongodb://localhost/selu-assignment-dev",
    test: "mongodb://localhost/selu-assignment-test",
  }
