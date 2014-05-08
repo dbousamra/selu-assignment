@@ -10,6 +10,7 @@ var app         = express();
 
 
 app.set('dbUrl', config.db[app.settings.env]);
+console.log(process.env.MONGOLAB_URI);
 mongoose.connect(app.get('dbUrl'));
 
 app.use(logger('short'));
