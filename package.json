@@ -7,17 +7,22 @@
   "license": "ISC",
   "homepage": "https://github.com/dbousamra/selu-assignment",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node_modules/.bin/mocha test"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/dbousamra/selu-assignment"
   },
   "dependencies": {
-    "body-parser": "^1.0.2",
-    "express": "^4.1.1",
-    "mongoose": "^3.8.8",
-    "morgan": "^1.0.1",
-    "path": "^0.4.9"
+    "body-parser": "*",
+    "express": "*",
+    "mongoose": "*",
+    "morgan": "*",
+    "path": "*"
+  },
+  "devDependencies": {
+    "mocha": "*",
+    "supertest": "*",
+    "should": "*"
   }
 }
