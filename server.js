@@ -8,9 +8,7 @@ var base        = require('./app/routes/base');
 var config      = require('./config/db')
 var app         = express();
 
-
 app.set('dbUrl', config.db[app.settings.env]);
-console.log(app.get("env"));
 mongoose.connect(app.get('dbUrl'));
 
 app.use(logger('short'));
@@ -28,7 +26,8 @@ app.use(function(req, res, next) {
 });
 
 // listen (start app with node server.js) 
-app.listen(8080);
-console.log("App listening on port 8080");
+var port = process.env.PORT || 8080
+app.listen(port);
+console.log("App listening on port " + port);
 
 module.exports = app;
