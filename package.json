@@ -14,8 +14,10 @@
     "url": "https://github.com/dbousamra/selu-assignment"
   },
   "dependencies": {
-    "body-parser": "*",
     "express": "*",
+    "express-session": "*",
+    "body-parser": "*",
+    "cookie-parser": "*",
     "mongoose": "*",
     "morgan": "*",
     "passport": "*",

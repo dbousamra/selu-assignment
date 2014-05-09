@@ -1,27 +1,35 @@
-var express     = require('express');
-var path        = require('path');
-var logger      = require('morgan');
-var mongoose    = require('mongoose');
-var bodyParser  = require('body-parser');
+var express      = require('express');
+var session      = require('express-session');
+var bodyParser   = require('body-parser');
+var cookieParser = require('cookie-parser');
+var path         = require('path');
+var logger       = require('morgan');
+var mongoose     = require('mongoose');
 
-var base        = require('./app/routes/base');
-var config      = require('./config/db')
-var app         = express();
+var passport     = require('./config/passport')
+var config       = require('./config/db')
+var base         = require('./app/routes/base');
+var user         = require('./app/routes/user');
+var app          = express();
 
 app.set('dbUrl', config.db[app.settings.env]);
 mongoose.connect(app.get('dbUrl'));
 
 app.use(logger('short'));
-app.use(bodyParser.json());
+app.use(bodyParser.json());  
 app.use(bodyParser.urlencoded());
+// required for passport
+app.use(cookieParser());
+app.use(session({ secret: 'dbousamra' }));
+app.use(passport.initialize());
+app.use(passport.session()); // persistent login sessions
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use("/", base);
+app.use(base);
+app.use(user);
 
 // catch 404 and forwarding to error handler
 app.use(function(req, res, next) {
-    var err = new Error('Not Found');
-    err.status = 404;
     next(err);
 });
 
