@@ -22,7 +22,7 @@
     "morgan": "*",
     "passport": "*",
     "passport-local": "*",
-    "bcrypt-nodejs" : "*",
+    "bcrypt" : "*",
     "path": "*"
   },
   "devDependencies": {

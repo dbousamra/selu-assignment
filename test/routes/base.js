@@ -1,6 +1,6 @@
 var utils   = require('../utils');
 var request = require('supertest');
-var assert  = require('assert');
+var should  = require('should');
 var app     = require('../../server');
 
 describe('Base API', function() {  
