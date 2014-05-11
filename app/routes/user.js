@@ -1,31 +1,28 @@
 var express  = require('express');
-var passport = require('passport');
+var passport = require('passport')
+var jwt      = require('jwt-simple');
 var User     = require('../models/user')
 var router   = express.Router();
 
-// var isLoggedIn = function(req, res, next) {
-//   // if user is authenticated in the session, carry on 
-//   if (req.isAuthenticated())
-//     return next();
-//   // if they aren't redirect them to the home page
-//   res.send("Not verified");
-// }
 
-// router.post('/user', passport.authenticate('local-signup', {
-//   successRedirect : '/user',
-//   failureRedirect : '/',
-// }));
+router.put('/user', passport.authenticate('bearer', { session: false }), function(req, res, next){
+  next();
+})
 
-// router.post('/login', passport.authenticate('local-login', {
-//   successRedirect : '/user',
-//   failureRedirect : '/'
-// }));
+router.post('/user/login', function(req, res, next) {
+  passport.authenticate('local', function(err, user, info) {
+    if (err) { return next(err) }
+    // throw an invalid credentials code
+    if (info) { res.status(401); res.send(info) }
+    // throw an internal server error code
+    if (!user) { return next(user) }
+    //user has authenticated correctly thus we create a JWT token from user's email
+    var token = jwt.encode({ email: user.email }, passport.tokenSecret);
+    res.json({ access_token : token });
+  })(req, res, next);
+})
 
-// router.get('/user/profile', isLoggedIn,  function(req, res) {
-//   res.send("Verified");
-// });
-
-
+// create a user
 router.post('/user', function(req, res) {
   var user = new User(req.body);
   User.findOne({ email: req.body.email }, function(error, foundUser) {
@@ -43,6 +40,4 @@ router.post('/user', function(req, res) {
   });  
 })
 
-
 module.exports = router;
-

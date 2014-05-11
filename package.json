@@ -15,15 +15,15 @@
   },
   "dependencies": {
     "express": "*",
-    "express-session": "*",
     "body-parser": "*",
-    "cookie-parser": "*",
     "mongoose": "*",
     "morgan": "*",
     "passport": "*",
+    "passport-http-bearer": "*",
     "passport-local": "*",
     "bcrypt" : "*",
-    "path": "*"
+    "path": "*",
+    "jwt-simple": "*"
   },
   "devDependencies": {
     "mocha": "*",
