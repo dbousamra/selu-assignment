@@ -4,13 +4,12 @@ var path         = require('path');
 var logger       = require('morgan');
 var mongoose     = require('mongoose');
 
-var passport     = require('./config/passport')
-var config       = require('./config/db')
+var passport     = require('./config/passport');
+var config       = require('./config/db');
 var user         = require('./app/routes/user');
 var app          = express();
 
 app.set('dbUrl', config.db[app.settings.env]);
-app.set('jwtTokenSecret', 'YOUR_SECRET_STRING');
 mongoose.connect(app.get('dbUrl'));
 
 if ("test" !== app.settings.env) {
@@ -38,7 +37,7 @@ app.use(function(err, req, res, next){
 });
 
 // listen (start app with node server.js) 
-var port = process.env.PORT || 8080
+var port = process.env.PORT || 8080;
 app.listen(port);
 console.log("App listening on port " + port);
 

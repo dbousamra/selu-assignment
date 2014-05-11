@@ -1,6 +1,6 @@
 var utils   = require('../utils');
 var should  = require('should');
-var User    = require('../../app/models/user')
+var User    = require('../../app/models/user');
 
 describe('User model', function() {  
   var user = new User({email: "dom@dom.com", password: "password", firstname: "Dominic", lastname: "Bou-Samra" });
@@ -18,7 +18,7 @@ describe('User model', function() {
       createdUser.password.should.not.equal('password');
       done();
     });
-  })
+  });
 
   it("should verify the password correctly", function(done) {
     User.create(user, function (err, createdUser) {
