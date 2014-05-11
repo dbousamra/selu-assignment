@@ -1,12 +1,11 @@
 var mongoose = require('mongoose');
 var bcrypt   = require('bcrypt');
 
-// define the schema for our user model
 var userSchema = mongoose.Schema({
-  email: { type: String, required: true, index: { unique: true } },
-  password: { type: String, required: true },
+  email:     { type: String, required: true, index: { unique: true } },
+  password:  { type: String, required: true },
   firstname: { type: String, required: true },
-  lastname: { type: String, required: true }
+  lastname:  { type: String, required: true }
 })
 
 userSchema.pre('save', function(next) {
@@ -24,6 +23,4 @@ userSchema.methods.validPassword = function(password, cb) {
   });
 };
 
-
-// create the model for users and expose it to our app
 module.exports = mongoose.model('User', userSchema);

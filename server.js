@@ -18,6 +18,7 @@ mongoose.connect(app.get('dbUrl'));
 app.use(logger('short'));
 app.use(bodyParser.json());  
 app.use(bodyParser.urlencoded());
+
 // required for passport
 app.use(cookieParser());
 app.use(session({ secret: 'dbousamra' }));
@@ -30,7 +31,7 @@ app.use(user);
 
 // catch 404 and forwarding to error handler
 app.use(function(req, res, next) {
-    next(err);
+  next(err);
 });
 
 // listen (start app with node server.js) 
