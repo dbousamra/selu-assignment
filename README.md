@@ -19,7 +19,10 @@ http://selu-assignment.herokuapp.com/
 
 *Returns*: ID of created user.
 
-*Example*: ```curl -i -H "Content-Type: application/json;" -X POST -d '{ "email": "email@gmail.com", "password": "password", "firstname": "Dominic", "lastname": "Bou-Samra" }' http://selu-assignment.herokuapp.com/user```
+*Example*: 
+```shell
+curl -i -H "Content-Type: application/json;" -X POST -d '{ "email": "email@gmail.com", "password": "password", "firstname": "Dominic", "lastname": "Bou-Samra" }' http://selu-assignment.herokuapp.com/user
+```
 
 *Example response*: ```{ "id":"537019eafff8ea0b0060242e" }```
 
@@ -31,7 +34,10 @@ http://selu-assignment.herokuapp.com/
 
 *Returns*: JWT access token
 
-*Example*: ```curl -i -H "Content-Type: application/json;" -X POST -d '{ "email": "email@gmail.com", "password": "password" }' http://selu-assignment.herokuapp.com/user/login```
+*Example*: 
+```shell
+curl -i -H "Content-Type: application/json;" -X POST -d '{ "email": "email@gmail.com", "password": "password" }' http://selu-assignment.herokuapp.com/user/login
+```
 
 *Example response*: ```{ "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImRvbUBkb20uY29tIn0.KJVs7TRNBgmrPZ4j3OpQbN-iTXkTmEGNPjBxGZqS0GE" }```
 
@@ -43,7 +49,10 @@ http://selu-assignment.herokuapp.com/
 
 *Returns*: ID of updated user
 
-*Example*: ```curl -i -H "Content-Type: application/json;" -H Authorization:'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImRvbUBkb20uY29tIn0.KJVs7TRNBgmrPZ4j3OpQbN-iTXkTmEGNPjBxGZqS0GE' -X PUT -d '{ "firstname":"Dominic", "lastname":"Bou-Smara" }' http://selu-assignment.herokuapp.com/user```
+*Example*: 
+```shell
+curl -i -H "Content-Type: application/json;" -H Authorization:'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImRvbUBkb20uY29tIn0.KJVs7TRNBgmrPZ4j3OpQbN-iTXkTmEGNPjBxGZqS0GE' -X PUT -d '{ "firstname":"Dominic", "lastname":"Bou-Smara" }' http://selu-assignment.herokuapp.com/user
+```
 
 *Example response*: ```{ "id":"537019eafff8ea0b0060242e" }```
 
