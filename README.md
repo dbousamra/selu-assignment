@@ -153,3 +153,4 @@ router.get('/user', passport.ensureAuthenticated, function(req, res, next) {
 There are a few problems with my implementation, however none are severe.
 
 - All traffic should 100% be over HTTPS, however I have no SSL implementation. I elected to keep it simple for now, however adding SSL is easy, and can be done at a later date. I didn't do so because the hassle of getting a certificate set up etc.
+- No token expiration date. It's just generated from the email. Normally you would encode the time of generation in there.
