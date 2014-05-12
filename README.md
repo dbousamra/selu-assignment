@@ -13,54 +13,54 @@ http://selu-assignment.herokuapp.com/
 
 #### Create a user
 
-*URL*: ```POST /user``` 
+**URL**: ```POST /user``` 
 
-*Accepts*: ```email```, ```password```, ```firstname```, ```lastname```
+**Accepts**: ```email```, ```password```, ```firstname```, ```lastname```
 
-*Returns*: ID of created user.
+**Returns**: ID of created user.
 
-*Example*: 
+**Example**: 
 ```shell
 curl -i -H "Content-Type: application/json;" -X POST -d '{ "email": "email@gmail.com", "password": "password", "firstname": "Dominic", "lastname": "Bou-Samra" }' http://selu-assignment.herokuapp.com/user
 ```
 
-*Example response*: 
+**Example response**: 
 ```shell
 { "id":"537019eafff8ea0b0060242e" }
 ```
 
 #### Login a user
 
-*URL*: ```POST /user/login``` 
+**URL**: ```POST /user/login``` 
 
-*Accepts*: ```email```, ```password```
+**Accepts**: ```email```, ```password```
 
-*Returns*: JWT access token
+**Returns**: JWT access token
 
-*Example*: 
+**Example**: 
 ```shell
 curl -i -H "Content-Type: application/json;" -X POST -d '{ "email": "email@gmail.com", "password": "password" }' http://selu-assignment.herokuapp.com/user/login
 ```
 
-*Example response*: 
+**Example response**: 
 ```shell
 { "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImRvbUBkb20uY29tIn0.KJVs7TRNBgmrPZ4j3OpQbN-iTXkTmEGNPjBxGZqS0GE" }
 ```
 
 #### Update a user
 
-*URL*: ```PUT /user``` 
+**URL**: ```PUT /user``` 
 
-*Accepts*: ```firstname```, ```lastname```
+**Accepts**: ```firstname```, ```lastname```
 
-*Returns*: ID of updated user
+**Returns**: ID of updated user
 
-*Example*: 
+**Example**: 
 ```shell
 curl -i -H "Content-Type: application/json;" -H Authorization:'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImRvbUBkb20uY29tIn0.KJVs7TRNBgmrPZ4j3OpQbN-iTXkTmEGNPjBxGZqS0GE' -X PUT -d '{ "firstname":"Dominic", "lastname":"Bou-Smara" }' http://selu-assignment.herokuapp.com/user
 ```
 
-*Example response*: 
+**Example response**: 
 ```shell
 { "id":"537019eafff8ea0b0060242e" }
 ```
