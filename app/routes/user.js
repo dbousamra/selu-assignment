@@ -12,7 +12,7 @@ router.put('/user', passport.ensureAuthenticated, function(req, res, next) {
     res.send("Error: Cannot update users password", 403);
   } else {
     User.findOneAndUpdate({ email: req.user.email }, req.body, function(err, updatedUser) {
-      res.json(updatedUser);
+      res.json({ id: updatedUser.id });
     });
   }
 });
