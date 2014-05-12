@@ -24,6 +24,10 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(user);
 
+app.get('/', function(req, res, next) {
+  res.json("https://github.com/dbousamra/selu-assignment")
+})
+
 app.use(function(req, res, next){
     res.status(404);
     res.send({ error: 'Not found' });
