@@ -6,19 +6,23 @@ Heroku deployment:
 ------------------
 http://selu-assignment.herokuapp.com/
 
+
 Architecture and Design:
+========================
 
-Technologies:
+### Technologies:
 
-ExpressJS 4.0
-MongoDB with MongooseJS as the ODM
-PassportJS for authentication and authorization.
-Mocha and should.js for tests.
-Supertest for HTTP/controller tests
+- ExpressJS 4.0
+- MongoDB with MongooseJS as the ODM
+- PassportJS for authentication and authorization.
+- Mocha and should.js for tests.
+- Supertest for HTTP/controller tests
 
-I chose ExpressJS as the core framework for the API for two reasons:
-- Community support as the defacto web framework for NodeJS. It's mature and stable with lots of great documentation, and lots of third party plugins. 
-- Flexibility. Choosing another less mainstream framework more tailored to a specific task (eg Restify) is a difficult decision. One must weigh up the benefits given from the framework, versus the risk associated with a smaller more specialized tool. If that framework loses critical support within the community, the maintainers move onto other things etc, it can be a challenge for people using it. In this case ExpressJS can accomplish everything the other frameworks can, just slightly more verbosely.
+##### ExpressJS
+
+Community support as the defacto web framework for NodeJS. It's mature and stable with lots of great documentation, and lots of third party plugins. Choosing another less mainstream framework more tailored to a specific task (eg Restify) is a difficult decision. One must weigh up the benefits given from the framework, versus the risk associated with a smaller more specialized tool. If that framework loses critical support within the community, the maintainers move onto other things etc, it can be a challenge for people using it. In this case ExpressJS can accomplish everything the other frameworks can, just slightly more verbosely.
+
+##### PassportJS
 
 PassportJS was chosen because it allows simple middleware to be written to handle authentication and authorization. It has the concept of "Strategies", which are essentially objects with a few functions that tell Passport how to authenticate and authorize a route. I elected to use Passport because it has out of the box support for many auth strategies, including OAuth1/2, and would require minimal code change to allow that.
 
