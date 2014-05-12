@@ -1,9 +1,11 @@
-CircleCI build page:
---------------------
+# SELU Assignment
+
+#### CircleCI build page:
+
 https://circleci.com/gh/dbousamra/selu-assignment/
 
-Heroku deployment:
-------------------
+#### Heroku deployment:
+
 http://selu-assignment.herokuapp.com/
 
 
@@ -36,9 +38,11 @@ I used CircleCI (https://circleci.com/gh/dbousamra/selu-assignment/) to handle b
 
 ### Folder layout:
 
-app: Contains models and routes for each domain object (in this case, just the User)
-config: Contains configuration files that control the database selection, as well as Passport auth middleware.
-test: Contains tests of the app code. Folder structure is identical to app.
+```app```: Contains models and routes for each domain object (in this case, just the User)
+
+```config```: Contains configuration files that control the database selection, as well as Passport auth middleware.
+
+```test```: Contains tests of the app code. Folder structure is identical to app.
 
 ### Authentication:
 
@@ -71,6 +75,8 @@ This method is established, and has been in use for many years. It does however 
 2. The server will verify the user and encode the users details in a JWT hash with a secret token known only to the server.
 3. The server will then send that to the client in the JSON response.
 4. The client will then send this token with every request under the ```'Authorization'``` header.
+
+This method solves many of the problems with cookie based auth.
 
 - Cross domain works easily, as it's just an HTTP header. It's not subject to any CORS policies.
 - 100% stateless. Each token represents the entire user (or some way to fetch a user from the DB - perhaps an ID or email), and doesn't rely on anything else besides knowing the session secret. This means its extremely easy to scale horizontally by adding more servers because each server can handle a different authorized request, and successfully decode a user.
