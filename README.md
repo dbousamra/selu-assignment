@@ -9,6 +9,19 @@ https://circleci.com/gh/dbousamra/selu-assignment/
 http://selu-assignment.herokuapp.com/
 
 
+### API:
+
+#### ```POST /user``` 
+
+*Action*: Creates a user.
+
+*Accepts*: ```email```, ```password```, ```firstname```, ```lastname```
+
+*Returns*: ID of created user.
+
+*Example*: ```curl -i -H "Content-Type: application/json;" -X POST -d '{ "email": "email@gmail.com", "password": "password", "firstname": "Dominic", "lastname": "Bou-Samra" }' http://selu-assignment.herokuapp.com/user```
+
+
 Architecture and Design:
 ========================
 
